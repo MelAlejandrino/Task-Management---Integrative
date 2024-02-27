@@ -1,0 +1,62 @@
+/* general styling */
+:root {
+    --clr-low-priority: #37ff6f;
+    --clr-medium-priority: #ff6b2c;
+    --clr-high-priority: #ff0000;
+    --clr-delete: #ff3f56;
+    --clr-div-gray: #161616;
+  }
+  
+  body {
+    background: black;
+    font-family: "Poppins", sans-serif;
+  }
+  
+  nav {
+    background: var(--clr-div-gray);
+    padding: 1em;
+    border-right: 1px solid rgba(255, 255, 255, 0.193);
+  }
+  nav > ul a {
+    color: white;
+  }
+  
+  nav ul {
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column;
+      gap: 0.5em;
+  }
+  header {
+    background: var(--clr-div-gray);
+    width: 100%;
+    color: white;
+    padding: 1em;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.193);
+  }
+  
+  main{
+      display: flex;
+  }
+  
+  main > .column{
+      width: 100%;
+  }
+  .column{
+      display: flex;
+      flex-direction: column;
+  }
+  
+  section{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2em;
+      gap: 1em;
+  }
+
+  section > h1 {
+    color: white;
+    font-weight: 600;
+    font-size: 2rem;
+  }

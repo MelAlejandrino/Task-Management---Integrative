@@ -1,0 +1,136 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+
+html,
+body,
+section {
+  min-height: 100vh;
+}
+
+img,
+picture,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+body {
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* general styling */
+:root {
+    --clr-low-priority: #37ff6f;
+    --clr-medium-priority: #ff6b2c;
+    --clr-high-priority: #ff0000;
+    --clr-delete: #ff3f56;
+    --clr-div-gray: #161616;
+  }
+  
+  body {
+    background: black;
+    font-family: "Poppins", sans-serif;
+    color: white;
+    height: 100vh;
+  }
+
+  header {
+    background: var(--clr-div-gray);
+    width: 100%;
+    color: white;
+    padding: 1em;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.193);
+    display: flex;
+    align-items: center;
+    gap: 1em;
+  }
+  main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+  form{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    max-width: 30em;
+    gap: 1em;
+  }
+
+  form input[type="submit"]{
+    background: white;
+    color: black;
+    padding: 0.5em 1em;
+    border: none;
+    border-radius: 0.6em;
+    cursor: pointer;
+  }
+
+  input[type="text"]{
+    padding: 1em;
+    background: none;
+    border-radius: 0.5em;
+    color: white;
+  }
+
+  form label{
+    font-weight: 600;
+  }
+
+  button{
+    color: white;
+    display: flex;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  #join_team_button{
+    background: none;
+    border: none;
+    color: var(--clr-low-priority);
+  }
