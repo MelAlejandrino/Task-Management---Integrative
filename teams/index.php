@@ -1,4 +1,26 @@
 <?php
+include('../db/config.php');
+
+if(isset($_GET['team_code'])) {
+    $team_code = $_GET['team_code'];
+
+    $sql = "SELECT * FROM teams WHERE team_code = '$team_code'";
+    $result = mysqli_query($conn, $sql);
+
+    if(mysqli_num_rows($result) > 0) {
+        $team = mysqli_fetch_assoc($result);
+        echo "<h1>Team: " . $team['team_name'] . "</h1>";
+        echo "<p>Description: " . $team['team_description'] . "</p>";
+    } else {
+        echo "Team not found.";
+        header('Location: ../');
+    }
+} else {
+    echo "Team code not provided.";
+}
+?>
+
+<?php
 session_start();
 
 if (!isset($_SESSION['active_user'])) {

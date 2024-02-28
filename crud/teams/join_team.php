@@ -1,3 +1,12 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['active_user'])) {
+    header("Location: auth/login.php");
+    exit;
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 

@@ -1,1 +1,4 @@
-<header><h1>Hi, Mel!</h1></header>
+<?php 
+    $name = $_SESSION['user_name'];
+?>
+<header><h1>Hi, <?php echo $name ?></h1></header>

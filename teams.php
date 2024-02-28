@@ -1,3 +1,12 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['active_user'])) {
+    header("Location: auth/login.php");
+    exit;
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,7 +35,7 @@
             <section>
                 <h1>My Teams</h1>
                 <?php
-                include('./components/teams/my_teams.php');
+                include('./components/my_teams.php');
                 ?>
             </section>
         </div>
