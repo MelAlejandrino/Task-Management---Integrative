@@ -9,8 +9,6 @@ if(isset($_GET['team_code'])) {
 
     if(mysqli_num_rows($result) > 0) {
         $team = mysqli_fetch_assoc($result);
-        echo "<h1>Team: " . $team['team_name'] . "</h1>";
-        echo "<p>Description: " . $team['team_description'] . "</p>";
     } else {
         echo "Team not found.";
         header('Location: ../');
@@ -46,7 +44,7 @@ if (!isset($_SESSION['active_user'])) {
 <body>
     <header>
     <button onclick="history.go(-1)"><i class="material-icons left">arrow_back</i></button>
-        <h1>Create a Team</h1>
+        <h1><?php echo $team['team_name'] ?></h1>
     </header>
     <main>
         <form action="../process.php" method="post">
