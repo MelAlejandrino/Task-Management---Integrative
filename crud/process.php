@@ -78,10 +78,15 @@ if(isset($_POST['done_task_button'])){
 if(isset($_POST['join_team_button'])){
     $team_code = $_POST['team_code'];
     $sql = "INSERT INTO `user_teams` (`team_code`, `user_id`) VALUES ('$team_code', '$user_id')";
-    $result = mysqli_query($conn, $sql);
-    if ($result) {
-        header("Location:../teams.php");
-    } else {
+    try {
+        $result = mysqli_query($conn, $sql);
+        if ($result) {
+            header("Location:../teams.php");
+        } else {
+            throw new Exception("Error executing query: " . mysqli_error($conn));
+        }
+    } catch (Exception $e) {
         header("Location:../index.php");
     }
 }
+
