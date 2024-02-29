@@ -61,6 +61,7 @@ if (!isset($_SESSION['active_user'])) {
                 <option value="high" <?php if ($tasks['priority'] === 'high') echo 'selected'; ?>>High</option>
             </select>
             <input type="date" name="due_date" id="due_date" value="<?php echo $tasks['due_date'] ?>">
+            </form>
             <form method="post" action="./delete_task.php">
             <input type="hidden" name="task_id" value="<?php echo $tasks['id'] ?>">
             <input type="submit" value="Delete Task" name="delete_task_button">
@@ -68,7 +69,7 @@ if (!isset($_SESSION['active_user'])) {
             <input type="submit" value="Done Task" name="done_task_button">
             </form>
             
-        </form>
+
         
         
     </main>
