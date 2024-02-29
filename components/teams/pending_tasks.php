@@ -16,8 +16,8 @@ $result = mysqli_query($conn, $sql);
     <div class="pending_tasks-items">
         <?php if (mysqli_num_rows($result) > 0) {
             while ($tasks = mysqli_fetch_assoc($result)) {
-                $team_code = $tasks['team_code'];
-                echo "<a href='./teams/?team_code=$team_code'><p>" . $tasks['title'] . "</p></a>";
+                $task_id = $tasks['id'];
+                echo "<a href='/task_management/crud/tasks/edit_task.php?task_id=$task_id'><p>" . $tasks['title'] . "</p></a>";
             }
         } else {
             echo "<p>No Pending Tasks Yey!</p>";

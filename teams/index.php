@@ -1,13 +1,15 @@
 <?php
+session_start();
 include('../db/config.php');
 
-if(isset($_GET['team_code'])) {
+if (isset($_GET['team_code'])) {
     $team_code = $_GET['team_code'];
+    $_SESSION['team_code'] = $team_code;
 
     $sql = "SELECT * FROM teams WHERE team_code = '$team_code'";
     $result = mysqli_query($conn, $sql);
 
-    if(mysqli_num_rows($result) > 0) {
+    if (mysqli_num_rows($result) > 0) {
         $team = mysqli_fetch_assoc($result);
     } else {
         echo "Team not found.";
@@ -19,7 +21,7 @@ if(isset($_GET['team_code'])) {
 ?>
 
 <?php
-session_start();
+
 
 if (!isset($_SESSION['active_user'])) {
     header("Location: auth/login.php");
@@ -43,19 +45,34 @@ if (!isset($_SESSION['active_user'])) {
 
 <body>
     <header>
-    <button onclick="history.go(-1)"><i class="material-icons left">arrow_back</i></button>
+        <button onclick="history.go(-1)"><i class="material-icons left">arrow_back</i></button>
         <h1><?php echo $team['team_name'] ?></h1>
     </header>
     <main>
-        <form action="../process.php" method="post">
-            <label for="team_name">Team Name: </label>
-            <input type="text" name="team_name" id="team_name">
-            <label for="team_description">Team Description: </label>
-            <input type="text" name="team_description" id="team_description">
-            <label for="team_code">Create Team Code: </label>
-            <input type="text" name="team_code" id="team_code" placeholder="4-6 characters">
-            <input type="submit" value="Create Team" name="create_team_button">
-        </form>
+        <section>
+            <?php
+            include('../components/teams/pending_tasks.php');
+            include('../components/teams/overdue_tasks.php');
+            ?>
+            <?php
+            $sql = "SELECT * FROM tasks WHERE `user_id` = '$user_id' AND `status` = 1;";
+            $result = mysqli_query($conn, $sql);
+            ?>
+            <div class="done_tasks">
+                <h1>Done Tasks</h1>
+                <div class="done_tasks-items">
+                    <?php if (mysqli_num_rows($result) > 0) {
+                        while ($tasks = mysqli_fetch_assoc($result)) {
+                            echo "<p>" . $tasks['title'] . "</p>";
+                        }
+                    } else {
+                        echo "<p>No Done Tasks yet.</p>";
+                    } ?>
+                </div>
+            </div>
+            </div>
+            <a href="../crud/tasks/create_task.php?team_code=<?php echo $team['team_code'] ?>">Create Task</a>
+        </section>
     </main>
 </body>
 
