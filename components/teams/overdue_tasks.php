@@ -7,7 +7,7 @@ $db = "task_management";
 $conn = mysqli_connect($host, $username, $password, $db);
 $user_id = $_SESSION['user_id'];
 
-$sql = "SELECT * FROM tasks WHERE `user_id` = '$user_id' AND `due_date` < NOW();";
+$sql = "SELECT * FROM tasks WHERE `user_id` = '$user_id' AND `due_date` < NOW() AND `status` = 0";
 $result = mysqli_query($conn, $sql);
 ?>
 <div class="overdue_tasks">

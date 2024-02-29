@@ -63,3 +63,25 @@ if (isset($_POST['edit_task_button'])) {
         header("Location: ../tasks.php");
     }
 }
+
+if(isset($_POST['done_task_button'])){
+    $task_id = $_POST['task_id'];
+    $sql = "UPDATE `tasks` SET `status` = 1 WHERE `id` = '$task_id'";
+    $result = mysqli_query($conn, $sql);
+    if ($result) {
+        header("Location: ../index.php");
+    } else {
+        header("Location: ../tasks.php");
+    }
+}
+
+if(isset($_POST['join_team_button'])){
+    $team_code = $_POST['team_code'];
+    $sql = "INSERT INTO `user_teams` (`team_code`, `user_id`) VALUES ('$team_code', '$user_id')";
+    $result = mysqli_query($conn, $sql);
+    if ($result) {
+        header("Location:../teams.php");
+    } else {
+        header("Location:../index.php");
+    }
+}

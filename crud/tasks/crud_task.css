@@ -1,0 +1,109 @@
+:root {
+    --clr-low-priority: #37ff6f;
+    --clr-medium-priority: #ff6b2c;
+    --clr-high-priority: #ff0000;
+    --clr-delete: #ff3f56;
+    --clr-div-gray: #161616;
+  }
+  
+  body {
+    background: black;
+    font-family: "Poppins", sans-serif;
+    color: white;
+    height: 100vh;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  header {
+    background: var(--clr-div-gray);
+    width: 100%;
+    color: white;
+    padding: 1em;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.193);
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    height: 30px;
+  }
+  main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 65%;
+  }
+  form{
+    display: flex;
+    flex-direction: column;
+    width: 150%;
+    max-width: 30em;
+    gap: 1em;
+  }
+
+  form input[type="submit"] {
+    background: black;
+    color: white;
+    padding: 0.5em 1em;
+    border: none;
+    border-radius: 0.6em;
+    cursor: pointer;
+  }
+
+  input[type="text"]{
+    padding: 1em;
+    background: none;
+    border-radius: 0.5em;
+    color: white;
+    
+  }
+
+  input[type="password"]{
+    padding: 1em;
+    background: none;
+    border-radius: 0.5em;
+    color: white;
+  }
+
+  input[type="date"]{
+    padding: 1em;
+    background: none;
+    border-radius: 0.5em;
+    color: white;
+    
+  }
+
+select{
+    padding: 1em;
+    background: none;
+    border-radius: 0.5em;
+    color: white;
+    
+  }
+  option{
+    color: black;
+  }
+
+
+
+
+
+  form label{
+    font-weight: 600;
+  }
+
+  button{
+    color: white;
+    display: flex;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  #join_team_button{
+    background: none;
+    border: none;
+    color: var(--clr-low-priority);
+  }
+
+  
