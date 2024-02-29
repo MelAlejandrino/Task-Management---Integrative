@@ -21,3 +21,10 @@
   gap: 1em;
   height: 100%;
 }
+
+.pending_tasks-items a, .overdue_tasks-items a, .teams-items a{
+  color: black;
+  background-color: white;
+  padding: 0.5em 1em;
+  border-radius: 0.3em;
+}

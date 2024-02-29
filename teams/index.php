@@ -24,7 +24,7 @@ if (isset($_GET['team_code'])) {
 
 
 if (!isset($_SESSION['active_user'])) {
-    header("Location: auth/login.php");
+    header("Location: ../auth/login.php");
     exit;
 }
 
@@ -65,7 +65,7 @@ if (!isset($_SESSION['active_user'])) {
                     <?php if (mysqli_num_rows($result) > 0) {
                         while ($tasks = mysqli_fetch_assoc($result)) {
                             $task_id = $tasks['id'];
-                            echo "<a href='/task_management/crud/tasks/edit_task.php?task_id=$task_id'><p>" . $tasks['title'] . "</p></a>";
+                            echo "<a href='/task_management/crud/tasks/edit_task.php?task_id=$task_id'>" . $tasks['title'] . "</a>";
                         }
                     } else {
                         echo "<p>No Done Tasks yet.</p>";
@@ -73,7 +73,7 @@ if (!isset($_SESSION['active_user'])) {
                 </div>
             </div>
             </div>
-            <a href="../crud/tasks/create_task.php?team_code=<?php echo $team['team_code'] ?>">Create Task</a>
+            <a href="../crud/tasks/create_task.php?team_code=<?php echo $team['team_code'] ?>" id="create-task">Create Task</a>
         </section>
     </main>
 </body>

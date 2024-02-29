@@ -67,10 +67,10 @@
 
   input[type="date"]{
     padding: 1em;
-    background: none;
+    background: white;
     border-radius: 0.5em;
-    color: white;
-    
+    color: black;
+    width: fit-content;
   }
 
 select{
