@@ -30,7 +30,7 @@
   flex-direction: column;
   gap: 1em;
   height: 90%;
-  overflow: scroll;
+  overflow: auto;
 }
 
 .my_teams-items a {
