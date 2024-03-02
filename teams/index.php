@@ -35,7 +35,7 @@ if (!isset($_SESSION['active_user'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create Team</title>
+    <title><?php echo $team_code ?></title>
     <link rel="stylesheet" href="index.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -56,7 +56,11 @@ if (!isset($_SESSION['active_user'])) {
             include('../components/teams/overdue_tasks.php');
             ?>
             <?php
-            $sql = "SELECT * FROM tasks WHERE `user_id` = '$user_id' AND `status` = 1;";
+            $sql = "SELECT * FROM tasks 
+            JOIN user_teams ON tasks.team_code = user_teams.team_code 
+            WHERE user_teams.user_id = '$user_id' AND tasks.status = 1 
+            AND tasks.team_code = '$team_code'; 
+            ";
             $result = mysqli_query($conn, $sql);
             ?>
             <div class="done_tasks">

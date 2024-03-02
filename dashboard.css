@@ -16,10 +16,10 @@
 .pending_tasks-items, .overdue_tasks-items, .teams-items{
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
   gap: 1em;
   height: 100%;
+  max-height: 10em;
+  overflow: scroll;
 }
 
 .pending_tasks-items a, .overdue_tasks-items a, .teams-items a{
@@ -27,4 +27,12 @@
   background-color: white;
   padding: 0.5em 1em;
   border-radius: 0.3em;
+}
+
+.pending_tasks-items a h1, .overdue_tasks-items a h1, .teams-items a h1{
+  font-weight: 600;
+}
+
+.pending_tasks-items a p, .overdue_tasks-items a p{
+  font-size: 0.8rem;
 }

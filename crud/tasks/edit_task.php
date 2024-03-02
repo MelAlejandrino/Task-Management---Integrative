@@ -33,7 +33,7 @@ if (!isset($_SESSION['active_user'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create Task</title>
+    <title>Edit Task</title>
     <link rel="stylesheet" href="index.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -61,17 +61,14 @@ if (!isset($_SESSION['active_user'])) {
                 <option value="high" <?php if ($tasks['priority'] === 'high') echo 'selected'; ?>>High</option>
             </select>
             <input type="date" name="due_date" id="due_date" value="<?php echo $tasks['due_date'] ?>">
-            </form>
-            <form method="post" action="./delete_task.php">
-            <input type="hidden" name="task_id" value="<?php echo $tasks['id'] ?>">
-            <input type="submit" value="Delete Task" name="delete_task_button">
             <input type="submit" value="Edit Task" name="edit_task_button">
             <input type="submit" value="Done Task" name="done_task_button">
-            </form>
-            
+        </form>
+        <form method="post" action="./delete_task.php">
+            <input type="hidden" name="task_id" value="<?php echo $tasks['id'] ?>">
+            <input type="submit" value="Delete Task" name="delete_task_button">
 
-        
-        
+        </form>
     </main>
 </body>
 

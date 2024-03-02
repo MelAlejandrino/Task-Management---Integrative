@@ -13,7 +13,7 @@
         $result = mysqli_query($conn, $sql);
         if (mysqli_num_rows($result) > 0) {
             while ($row = mysqli_fetch_assoc($result)) {
-                echo '<p><a href="http://localhost/task_management/teams/?team_code=' . $row["team_code"] . '">' . $row["team_name"] . '</a></p>';
+                echo '<a href="http://localhost/task_management/teams/?team_code=' . $row["team_code"] . '"> <h1>' . $row["team_name"] . '</h1></a>';
             }
         } else {
             echo '<p>You don\'t have a team yet</p>';

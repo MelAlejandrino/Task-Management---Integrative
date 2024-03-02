@@ -20,7 +20,7 @@ $result = mysqli_query($conn, $sql);
         <?php if (mysqli_num_rows($result) > 0) {
             while ($tasks = mysqli_fetch_assoc($result)) {
                 $team_code = $tasks['team_code'];
-                echo "<a href='./teams/?team_code=$team_code'><p>" . $tasks['title'] . "</p></a>";
+                echo "<a href='./teams/?team_code=$team_code'><h1>" . $tasks['title'] . "</h1><p> " . $tasks['description']  ."</p></a>";
             }
         } else {
             echo "<p>No Pending Tasks Yey!</p>";
