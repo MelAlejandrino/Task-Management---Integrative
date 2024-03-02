@@ -21,7 +21,7 @@ $result = mysqli_query($conn, $sql);
         <?php if (mysqli_num_rows($result) > 0) {
             while ($tasks = mysqli_fetch_assoc($result)) {
                 $task_id = $tasks['id'];
-                echo "<a href='/task_management/crud/tasks/edit_task.php?task_id=$task_id'><h1>" . $tasks['title'] . "</h1><p>" . $tasks['description'] . "</p></a>";
+                echo "<a href='/task_management/crud/tasks/edit_task.php?task_id=$task_id'><h1>" . $tasks['title'] . "</h1><p>" . $tasks['description'] . "</p><p>Priority: " . $tasks['priority'] . "</p><p>Due Date: " . $tasks['due_date'] . "</p></a>";
             }
         } else {
             echo "<p>No Pending Tasks Yey!</p>";
